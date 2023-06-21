@@ -5,13 +5,18 @@ require "router.php";
 // connect to our MySQL database. dsn = data source name
 class Database 
 {
-  public function query()
+  public $connection;
+
+  public function __construct()
   {
     $dsn = "mysql:host=localhost;port=3306;dbname=simplecrud;charset=utf8mb4;user=root;password=myAdmin0372021";
+    $this->connection = new PDO($dsn);
+  }
 
-    $pdo = new PDO($dsn);
+  public function query($query)
+  {
 
-    $statement = $pdo->prepare("SELECT * FROM posts");
+    $statement = $this->connection->prepare($query);
     $statement->execute();
 
     return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +25,7 @@ class Database
 
 $db = new Database();
 
-$db->query();
+$posts = $db->query("SELECT * FROM posts");
 
 
 
