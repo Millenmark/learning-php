@@ -3,9 +3,11 @@ require "./utils/functions.php";
 require "router.php";
 require "config/Database.php";
 
-$db = new Database();
+$config = require("config/config.php");
 
-$posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
+$db = new Database($config);
+
+$posts = $db->query("SELECT * FROM posts")->fetchAll();
 
 
 
