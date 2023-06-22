@@ -7,10 +7,11 @@ $config = require("config/config.php");
 
 $db = new Database($config["database"]);
 
-$posts = $db->query("SELECT * FROM posts")->fetchAll();
+$id = $_GET["id"];
 
+$query = "SELECT * FROM posts WHERE id = ?";
 
+$post = $db->query($query, [$id])->fetch();
 
-foreach ($posts as $post) {
-  echo "<li>" . $post["title"] . "</li>";
-}
+echo "<li>" . $post["title"] . "</li>";
+
