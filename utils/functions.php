@@ -17,3 +17,9 @@ function abort($statusCode = 404) {
   require "views/$statusCode.php";
   die();
 }
+
+function authorize($condition, $status = Response::NOT_FOUND) {
+  if(!$condition) {
+    abort($status);
+  }
+}
