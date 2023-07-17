@@ -10,9 +10,9 @@ $trimmedBody = isset($_POST["body"]) ? trim($_POST["body"]) : '';
 
 // dd(Validator::email('adfasdfadf'));
 
-if (!Validator::email('adfadsf')) {
-  dd("That is not a valid email");
-}
+// if (!Validator::email('adfadsf')) {
+//   dd("That is not a valid email");
+// }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
