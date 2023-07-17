@@ -8,6 +8,12 @@ $heading = "Create a Note";
 $errors = [];
 $trimmedBody = isset($_POST["body"]) ? trim($_POST["body"]) : '';
 
+// dd(Validator::email('adfasdfadf'));
+
+if (!Validator::email('adfadsf')) {
+  dd("That is not a valid email");
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   if (!Validator::string($_POST["body"], 1, 1000)) {
