@@ -8,7 +8,7 @@ require BASE_PATH . "./utils/functions.php";
 
 spl_autoload_register(function ($class) {
   // dd($class);
-  require base_path("config/" . $class . ".php");
+  require base_path("core/" . $class . ".php");
 });
 
-require base_path("router.php");
+require base_path("core/router.php");
