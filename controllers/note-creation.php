@@ -1,4 +1,6 @@
 <?php
+require "Validator.php";
+
 $config = require("config/config.php");
 $db = new Database($config["database"]);
 
@@ -7,7 +9,9 @@ $errors = [];
 $trimmedBody = isset($_POST["body"]) ? trim($_POST["body"]) : '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  if (strlen($trimmedBody) === 0) {
+  $validator = new Validator();
+
+  if ($validator->string($_POST["body"])) {
     $errors["body"] = "A body is required";
   }
 
@@ -20,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       "body" => $trimmedBody,
       "user_id" => 3,
     ]);
-    
   }
 }
 
