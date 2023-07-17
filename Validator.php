@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 class Validator
 {
-  public function string($value) 
+  public function string($value)
   {
-    return strlen($_POST["body"]) === 0
+    return strlen(trim($value)) === 0;
   }
 }
