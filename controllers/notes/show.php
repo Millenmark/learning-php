@@ -1,6 +1,6 @@
 <?php
 
-$config = require("config/config.php");
+$config = require base_path("config/config.php");
 $db = new Database($config["database"]);
 
 $currentUserId = 3;
@@ -17,4 +17,7 @@ $note = $db->query(
 
 authorize($note["user_id"] === $currentUserId, Response::FORBIDDEN);
 
-require "./views/notes/show.view.php";
+view("notes/show.view.php", [
+  "heading" => "Note",
+  "note" => $note
+]);
