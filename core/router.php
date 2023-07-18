@@ -1,6 +1,6 @@
 <?php
 
-$routes = require base_path("routes.php");
+$routes = require base_path("core/routes.php");
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
