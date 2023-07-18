@@ -1,7 +1,11 @@
 <?php
 
+namespace Core;
+
+use PDO;
+
 // connect to our MySQL database. dsn = data source name
-class Database 
+class Database
 {
   public $connection;
   public $statement;
@@ -24,7 +28,7 @@ class Database
     return $this;
   }
 
-  public function fetch() 
+  public function fetch()
   {
     return $this->statement->fetch();
   }
@@ -33,12 +37,11 @@ class Database
   {
     $result = $this->fetch();
 
-    if(!$result) {
+    if (!$result) {
       abort(Response::FORBIDDEN);
     }
 
     return $result;
-
   }
 
   public function fetchAll()
