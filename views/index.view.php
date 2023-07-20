@@ -8,5 +8,5 @@
     Home Page taste like Home pare :D
   </div>
 </main>
-  
+
 <?php require("partials/foot.php"); ?>
