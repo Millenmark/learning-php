@@ -9,3 +9,5 @@ return [
   "/note" => "controllers/notes/show.php",
   "/notes/create" => "controllers/notes/create.php"
 ];
+
+dd($router->routes);
